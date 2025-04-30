@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  lycet_app:
+    image: lycet
+    container_name: lycet_app
+    ports:
+      - "8000:8000"  # Cambia a 80:8000 si usarás directamente
+    volumes:
+      - ./data:/var/www/html/data
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
